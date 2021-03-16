@@ -2,5 +2,9 @@
     <string name="app_name">ProjetSuiviStage</string>
     <string name="title">Gestionnaire de stage</string>
     <string name="btn_accueil_continuer">Continuer</string>
-    <string name="test"></string>
+    <string name="eleves">Élèves</string>
+    <string name="prof">Professeurs</string>
+    <string name="btn_retour">Retour</string>
+    <string name="btn_valider">Valider</string>
+    <string name="titre_page_info_stg">Informations Stagiaire</string>
 </resources>
