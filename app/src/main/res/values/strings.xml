@@ -7,4 +7,11 @@
     <string name="btn_retour">Retour</string>
     <string name="btn_valider">Valider</string>
     <string name="titre_page_info_stg">Informations Stagiaire</string>
+    <string name="nom_stg">Nom</string>
+    <string name="prenom_stg">Prénom</string>
+    <string name="anne_stg">Année</string>
+    <string name="classe_stg">Classe</string>
+    <string name="spe_stg">Spécialité</string>
+    <string name="radio_btn_slam">SLAM</string>
+    <string name="radio_btn_sisr">SISR</string>
 </resources>
