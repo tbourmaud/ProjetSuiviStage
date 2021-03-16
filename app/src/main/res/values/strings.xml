@@ -7,6 +7,11 @@
     <string name="btn_retour">Retour</string>
     <string name="btn_valider">Valider</string>
     <string name="titre_page_info_stg">Informations Stagiaire</string>
+    <string name="StringBilanStage">Bilan stage</string>
+    <string name="TextViewConditionsStage">Condition du stage</string>
+    <string name="TextViewBilanTravaux">Bilan des travaux réalisés</string>
+    <string name="TextViewRessources">Ressources et outils utilisés</string>
+    <string name="TextViewCommentaires">Commentaires et appréciation générale</string>
     <string name="nom_stg">Nom</string>
     <string name="prenom_stg">Prénom</string>
     <string name="anne_stg">Année</string>
