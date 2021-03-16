@@ -2,4 +2,5 @@
     <string name="app_name">ProjetSuiviStage</string>
     <string name="title">Gestionnaire de stage</string>
     <string name="btn_accueil_continuer">Continuer</string>
+    <string name="test"></string>
 </resources>
