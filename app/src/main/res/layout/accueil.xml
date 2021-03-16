@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/textViewNewReleve"
+        android:id="@+id/textViewTitle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/title"
@@ -39,7 +39,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/logo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/jol_logo" />
@@ -57,7 +57,7 @@
                     android:textSize="18sp" />
 
                 <Spinner
-                    android:id="@+id/spinner"
+                    android:id="@+id/spinnerProf"
                     android:layout_width="match_parent"
                     android:layout_height="100px" />
 
@@ -70,7 +70,7 @@
                     android:textSize="18sp" />
 
                 <Spinner
-                    android:id="@+id/spinner2"
+                    android:id="@+id/spinnerEleves"
                     android:layout_width="match_parent"
                     android:layout_height="100px" />
 
@@ -93,14 +93,14 @@
 
 
             <Button
-                android:id="@+id/btnAnnulerNewR"
+                android:id="@+id/btnRetourAccueil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/btn_retour" />
 
             <Button
-                android:id="@+id/btnValiderNewR"
+                android:id="@+id/btnValiderAccueil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
