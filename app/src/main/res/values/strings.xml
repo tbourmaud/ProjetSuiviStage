@@ -14,4 +14,16 @@
     <string name="info_tuteur_entr">Informations tuteur entreprise</string>
     <string name="tel">Téléphone :</string>
 
+    <string name="StringBilanStage">Bilan stage</string>
+    <string name="TextViewConditionsStage">Condition du stage</string>
+    <string name="TextViewBilanTravaux">Bilan des travaux réalisés</string>
+    <string name="TextViewRessources">Ressources et outils utilisés</string>
+    <string name="TextViewCommentaires">Commentaires et appréciation générale</string>
+    <string name="nom_stg">Nom</string>
+    <string name="prenom_stg">Prénom</string>
+    <string name="anne_stg">Année</string>
+    <string name="classe_stg">Classe</string>
+    <string name="spe_stg">Spécialité</string>
+    <string name="radio_btn_slam">SLAM</string>
+    <string name="radio_btn_sisr">SISR</string>
 </resources>
