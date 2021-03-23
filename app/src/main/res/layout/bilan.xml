@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/TextViewConditionsStage"
-            android:layout_marginTop="0dp"/>
+            android:layout_marginTop="25dp"/>
 
         <EditText
             android:id="@+id/editTextConditions"
@@ -36,16 +36,16 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textMultiLine"
-            android:lines="2"
+            android:lines="3"
             android:maxLength="500"
-            android:minHeight="00dp" />
+            android:minHeight="25dp" />
 
         <TextView
             android:id="@+id/textViewBilanTravaux"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/TextViewBilanTravaux"
-            android:layout_marginTop="0dp"/>
+            android:layout_marginTop="10dp"/>
 
         <EditText
             android:id="@+id/editBilanTravaux"
@@ -53,39 +53,40 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textMultiLine"
-            android:lines="2"
+            android:lines="3"
             android:maxLength="500"
-            android:minHeight="0dp" />
+            android:minHeight="25dp" />
         <TextView
             android:id="@+id/textViewRessources"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/TextViewRessources"
-            android:layout_marginTop="0dp"/>
+            android:layout_marginTop="10dp"/>
 
         <EditText
             android:id="@+id/editTextRessources"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
-            android:lines="2"
+            android:lines="3"
             android:maxLength="500"
-            android:minHeight="0dp" />
+            android:minHeight="25dp" />
 
         <TextView
             android:id="@+id/textViewCommentaires"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/TextViewCommentaires"
-            android:layout_marginTop="0dp"/>
+            android:layout_marginTop="10dp"/>
 
         <EditText
             android:id="@+id/editTextCommentaires"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
-            android:lines="2"
-            android:maxLength="500" />
+            android:lines="3"
+            android:maxLength="500"
+            android:minHeight="25dp"/>
 
 
         <LinearLayout

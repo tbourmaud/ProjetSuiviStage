@@ -38,15 +38,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/info_tuteur_etablissement"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:layout_marginBottom="40dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/textViewNomTuteurEcole"
-                    android:layout_width="wrap_content"
+                    android:layout_width="110dp"
                     android:layout_height="match_parent"
                     android:text="@string/nom" />
 
@@ -56,15 +58,18 @@
                     android:layout_height="match_parent"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="" />
+                    android:text=""
+
+                    />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/textViewMailTuteurEcole"
-                    android:layout_width="wrap_content"
+                    android:layout_width="110dp"
                     android:layout_height="match_parent"
                     android:text="@string/mail" />
 
@@ -80,9 +85,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/textViewDateVisite"
-                    android:layout_width="wrap_content"
+                    android:layout_width="110dp"
                     android:layout_height="match_parent"
                     android:text="@string/date_visite" />
 
@@ -98,9 +104,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/textViewDivers"
-                    android:layout_width="wrap_content"
+                    android:layout_width="110dp"
                     android:layout_height="match_parent"
                     android:text="@string/divers" />
 
@@ -115,7 +122,7 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="150px" />
+                android:layout_height="120px"/>
 
 
         </LinearLayout>
@@ -128,19 +135,21 @@
 
 
             <TextView
-                android:id="@+id/textViewTuteurEts"
+                android:id="@+id/textViewTuteurEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/info_tuteur_entr"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:layout_marginBottom="40dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/textViewNomTuteurEts"
-                    android:layout_width="wrap_content"
+                    android:layout_width="110dp"
                     android:layout_height="match_parent"
                     android:text="@string/nom" />
 
@@ -156,9 +165,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/textViewTuteurEts"
-                    android:layout_width="wrap_content"
+                    android:layout_width="110dp"
                     android:layout_height="match_parent"
                     android:text="@string/tel" />
 
@@ -174,9 +184,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/textViewTuteurMailEts"
-                    android:layout_width="wrap_content"
+                    android:layout_width="110dp"
                     android:layout_height="match_parent"
                     android:text="@string/mail" />
 
@@ -196,7 +207,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="65dp">
+            android:layout_marginTop="40dp">
 
 
             <Button

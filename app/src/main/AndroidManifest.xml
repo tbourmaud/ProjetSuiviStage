@@ -20,6 +20,10 @@
         </activity>
         <activity android:name=".InformationTuteurActivity">
         </activity>
+        <activity android:name=".BilanStageActivity">
+        </activity>
+        <activity android:name=".AvisStageActivity">
+        </activity>
 
     </application>
 

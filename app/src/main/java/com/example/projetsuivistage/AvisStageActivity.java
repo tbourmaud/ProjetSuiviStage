@@ -6,15 +6,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class InformationTuteurActivity extends Activity {
+public class AvisStageActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.info_tuteur);
+        setContentView(R.layout.avis);
 
         //Gestion des boutons enregistrer et annuler
-        Button btnValider = (Button) findViewById(R.id.btnValiderInfoTuteur);
-        Button btnAnnuler = (Button) findViewById(R.id.btnAnnulerInfoTuteur);
+        Button btnValider = (Button) findViewById(R.id.btnValiderAvis);
+        Button btnAnnuler = (Button) findViewById(R.id.btnAnnulerAvis);
 
 
         //on va créer un écouteur pour un groupe de boutons
@@ -23,11 +23,11 @@ public class InformationTuteurActivity extends Activity {
             @Override
             public void onClick(View v) {
                 switch (v.getId()) {
-                    case R.id.btnAnnulerInfoTuteur:
+                    case R.id.btnAnnulerAvis:
                         finish();
                         break;
-                    case R.id.btnValiderInfoTuteur:
-                        Intent intent = new Intent(InformationTuteurActivity.this, BilanStageActivity.class);
+                    case R.id.btnValiderAvis:
+                        Intent intent = new Intent(AvisStageActivity.this, MainActivity.class);
                         startActivity(intent);
                         finish();
                         break;
