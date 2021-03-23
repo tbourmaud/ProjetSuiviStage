@@ -13,6 +13,7 @@
         android:textSize="20dp"
         android:gravity="center_horizontal"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="15dp"
         />
 
 
@@ -21,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginHorizontal="10dp">
 
@@ -185,7 +186,8 @@
                     android:layout_height="match_parent"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="" />
+                    android:text=""
+                    />
             </LinearLayout>
         </LinearLayout>
 
@@ -198,14 +200,14 @@
 
 
             <Button
-                android:id="@+id/btnAnnulerNewR"
+                android:id="@+id/btnAnnulerInfoTuteur"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/btn_retour" />
 
             <Button
-                android:id="@+id/btnValiderNewR"
+                android:id="@+id/btnValiderInfoTuteur"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

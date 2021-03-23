@@ -12,6 +12,7 @@
         android:text="@string/titre_page_info_stg"
         android:gravity="center_horizontal"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="15dp"
         />
 
     <LinearLayout
@@ -106,14 +107,14 @@
             android:layout_marginTop="65dp">
 
             <Button
-                android:id="@+id/btnAnnulerNewR"
+                android:id="@+id/btnAnnulerInfoStagiaire"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/btn_retour" />
 
             <Button
-                android:id="@+id/btnValiderNewR"
+                android:id="@+id/btnValiderInfoStagiaire"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

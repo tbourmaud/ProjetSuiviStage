@@ -16,7 +16,7 @@ public class CreateBDD extends SQLiteOpenHelper{
     private static final String COL_CODEPOSTAL = "Code Postal";
     private static final String COL_VILLE = "Ville";
     private static final String COL_TELEPHONE = "Téléphone";
-    private static final CREATE_TABLEENTREPRISE = "CREATE TABLE " + " TABLE_ENTREPRISE " + " (" + COL_IDENTREPRISE + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_NOM + " TEXT NOT NULL, " + COL_ADRESSE + " TEXT NOT NULL, " + COL_CODEPOSTAL + " TEXT NOT NULL, " + COL_VILLE + " TEXT NOT NULL, " + COL_TELEPHONE + " TEXT NOT NULL);";
+    private static final String CREATE_TABLEENTREPRISE = "CREATE TABLE " + " TABLE_ENTREPRISE " + " (" + COL_IDENTREPRISE + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_NOM + " TEXT NOT NULL, " + COL_ADRESSE + " TEXT NOT NULL, " + COL_CODEPOSTAL + " TEXT NOT NULL, " + COL_VILLE + " TEXT NOT NULL, " + COL_TELEPHONE + " TEXT NOT NULL);";
 
 
 

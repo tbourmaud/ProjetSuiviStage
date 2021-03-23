@@ -26,4 +26,5 @@
     <string name="spe_stg">Spécialité</string>
     <string name="radio_btn_slam">SLAM</string>
     <string name="radio_btn_sisr">SISR</string>
+    <string name="btn_annuler">Annuler</string>
 </resources>
