@@ -19,4 +19,13 @@
     <string name="spe_stg">Spécialité</string>
     <string name="radio_btn_slam">SLAM</string>
     <string name="radio_btn_sisr">SISR</string>
+    <string name="titre_page_avis">Avis maître de stage</string>
+    <string name="text_parcours_pro">Participation du maître de stage à l\'épreuve orale "Parcours de professionnalisation :</string>
+    <string name="text_opportunite">Opportunité de stage :</string>
+    <string name="text_date_stage">Si oui :</string>
+    <string name="radio_btn_oui">Oui</string>
+    <string name="radio_btn_non">Non</string>
+    <string name="checkbox_date_mai_juin">Mai-Juin 2021</string>
+    <string name="checkbox_date_janvier_fevrier">Janvier-Février 2022</string>
+
 </resources>
