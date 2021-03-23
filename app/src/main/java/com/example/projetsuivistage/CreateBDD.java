@@ -76,10 +76,14 @@ public class CreateBDD extends SQLiteOpenHelper{
     private static final String CREATE_TABLE_ELEVE = "CREATE TABLE " + TABLE_ELEVE + " (" + COL_ID_ELEVE + " TEXT NOT NULL, " + COL_NOM_ELEVE + " TEXT NOT NULL, " + COL_PRENOM_ELEVE + "TEXT NOT NULL, " + COL_CLASSE_ELEVE + " TEXT NOT NULL, " + COL_SPECIALITE_ELEVE + "TEXT NOT NULL);";
 
 
-    private static final String COL_FK_ID_ENTREPRISE = "id_entreprise";
-    private static final String COL_FK_ID_TUTEUR_ENTREPRISE = "id_tuteur_entreprise";
-    private static final String COL_FK_ID_PROFESSEUR = "id_professeur";
-    private static final String COL_FK_ID_ELEVE = "id_eleve";
+    private static final String ALTER_TABLE_ELEVE = "ALTER TABLE " + TABLE_ELEVE + " ADD FOREIGN KEY (" + COL_ID_ELEVE + ") REFERENCES " + TABLE_PROFESSEUR +"(" + COL_ID_PROFESSEUR
+            + " ), ADD FOREIGN KEY + (" + COL_ID_ELEVE + ") REFERENCES " + TABLE_TUTEUR_ENTREPRISE + " (" + COL_ID_TUTEUR_ENTREPRISE + ");";
+
+    private static final String ALTER_TABLE_STAGE = "ALTER TABLE " + TABLE_STAGE + " ADD FOREIGN KEY (" + COL_ID_STAGE + ") REFERENCES " + TABLE_ENTREPRISE +"(" + COL_ID_ENTREPRISE
+            +"), ADD FOREIGN KEY (" + COL_ID_STAGE + ") REFERENCES " + TABLE_PROFESSEUR + " (" + COL_ID_PROFESSEUR
+            + "), ADD FOREIGN KEY (" + COL_ID_STAGE + ") REFERENCES " + TABLE_TUTEUR_ENTREPRISE + " (" + COL_ID_TUTEUR_ENTREPRISE
+            + "), ADD FOREIGN KEY (" + COL_ID_STAGE + ") REFERENCES " + TABLE_ELEVE + " (" + COL_ID_ELEVE + ");";
+
 
 
     public CreateBDD(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
@@ -94,11 +98,17 @@ public class CreateBDD extends SQLiteOpenHelper{
         db.execSQL(CREATE_TABLE_STAGE);
         db.execSQL(CREATE_TABLE_PROFESSEUR);
         db.execSQL(CREATE_TABLE_ELEVE);
+        db.execSQL(ALTER_TABLE_STAGE);
+        db.execSQL(ALTER_TABLE_ELEVE);
 
     }
 
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
+
+
+
 
     }
 
