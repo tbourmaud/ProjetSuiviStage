@@ -1,8 +1,12 @@
 package com.example.projetsuivistage;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.Cursor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -115,7 +119,12 @@ public class DAOBdd {
         this.context = context;
         tableCourante = new CreateBDD(context, NOM_BDD, null, VERSION_BDD);
     }
-    
+    //si la bdd n’existe pas, l’objet SQLiteOpenHelper exécute la méthode onCreate
+    // si la version de la base a changé, la méthode onUpgrade sera lancée
+    // dans les 2 cas l’appel à getWritableDatabase ou getReadableDatabase renverra la base
+    // de données en cache, nouvellement ouverte, nouvellement créée ou mise à jour
+    //les méthodes d'instance
+
     public DAOBdd open(){
         db = tableCourante.getWritableDatabase();
         return this;
@@ -139,6 +148,22 @@ public class DAOBdd {
         c.close();
         return listeEleves;
     }
+
+
+    // Permet de retourner une liste contenant uniquement le noms des professeurs
+    public List<String> getAllNomProf(){
+        List<String> listeNomProfs = new ArrayList<>();
+        Cursor c = db.rawQuery("SELECT Nom FROM tProfesseur", null);
+        if(c.moveToFirst()) {
+            do {
+                listeNomProfs.add(c.getString(1));
+            } while (c.moveToNext());
+        }
+        c.close();
+        //db.close();
+        return listeNomProfs;
+    }
+
 
 
 }
