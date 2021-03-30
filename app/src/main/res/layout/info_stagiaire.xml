@@ -87,17 +87,23 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/radioButtonSlam"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/radio_btn_slam" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
 
-            <RadioButton
-                android:id="@+id/radioButtonSisr"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="@string/radio_btn_sisr" />
+                <RadioButton
+                    android:id="@+id/radioButtonSlam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radio_btn_slam" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonSisr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/radio_btn_sisr" />
+            </RadioGroup>
+
         </LinearLayout>
 
         <LinearLayout
