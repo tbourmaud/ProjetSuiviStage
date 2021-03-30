@@ -18,7 +18,7 @@ public class DAOBdd {
 
 
 
-    //table STAGE
+    //table Stage
     static final String TABLE_STAGE = "tStage";
     static final String COL_ID_STAGE = "_id_stage";
     static final int NUM_COL_ID_STAGE = 0;
@@ -53,7 +53,7 @@ public class DAOBdd {
     static final String COL_FK_ID_ENTREPRISE_STAGE = "_id_entreprise";
     static final int NUM_COL_FK_ENTREPRISE_STAGE = 15;
 
-    //table ELEVE
+    //table Eleve
     static final String TABLE_ELEVE = "tEleve";
     static final String COL_ID_ELEVE = "_id_eleve";
     static final int NUM_COL_ELEVE = 0;
@@ -166,10 +166,28 @@ public class DAOBdd {
     }
 
 
+    public long insererProf (Professeur unProf){
+        //Création d'un ContentValues (fonctionne comme une HashMap)
+        ContentValues values = new ContentValues();
+        //on lui ajoute une valeur associé à une clé (qui est le nom de la colonne où on veut mettre la valeur)
+        values.put(COL_NOM_PROFESSEUR, unProf.getNom());
+        values.put(COL_MAIL_PROFESSEUR, unProf.getEmail());
+        //on insère l'objet dans la BDD via le ContentValues
+        return db.insert(TABLE_PROFESSEUR, null, values);
+    }
 
 
-
-
+    public long insererEleve (Eleve unEleve){
+        //Création d'un ContentValues (fonctionne comme une HashMap)
+        ContentValues values = new ContentValues();
+        //on lui ajoute une valeur associé à une clé (qui est le nom de la colonne où on veut mettre la valeur)
+        values.put(COL_NOM_ELEVE, unEleve.getNom());
+        values.put(COL_PRENOM_ELEVE, unEleve.getPrenom());
+        values.put(COL_CLASSE_ELEVE, unEleve.getClasse());
+        values.put(COL_SPECIALITE_ELEVE, unEleve.getSpecialite());
+        //on insère l'objet dans la BDD via le ContentValues
+        return db.insert(TABLE_ELEVE, null, values);
+    }
 
 
 }
