@@ -1,7 +1,11 @@
 package com.example.projetsuivistage;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DAOBdd {
     static final int VERSION_BDD = 1;
@@ -125,5 +129,21 @@ public class DAOBdd {
         db.close();
         return null;
     }
+
+    // Permet de retourner une liste contenant uniquement le noms des professeurs
+    public List<String> getAllNomProf(){
+        List<String> listeNomProfs = new ArrayList<>();
+        Cursor c = db.rawQuery("SELECT Nom FROM tProfesseur", null);
+        if(c.moveToFirst()) {
+            do {
+                listeNomProfs.add(c.getString(1));
+            } while (c.moveToNext());
+        }
+        c.close();
+        //db.close();
+        return listeNomProfs;
+    }
+
+
 
 }
