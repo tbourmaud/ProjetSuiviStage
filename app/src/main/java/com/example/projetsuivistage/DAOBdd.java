@@ -2,6 +2,10 @@ package com.example.projetsuivistage;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.Cursor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DAOBdd {
     static final int VERSION_BDD = 1;
@@ -111,12 +115,7 @@ public class DAOBdd {
         this.context = context;
         tableCourante = new CreateBDD(context, NOM_BDD, null, VERSION_BDD);
     }
-    //si la bdd n’existe pas, l’objet SQLiteOpenHelper exécute la méthode onCreate
-    // si la version de la base a changé, la méthode onUpgrade sera lancée
-    // dans les 2 cas l’appel à getWritableDatabase ou getReadableDatabase renverra la base
-    // de données en cache, nouvellement ouverte, nouvellement créée ou mise à jour
-    //les méthodes d'instance
-
+    
     public DAOBdd open(){
         db = tableCourante.getWritableDatabase();
         return this;
@@ -125,5 +124,21 @@ public class DAOBdd {
         db.close();
         return null;
     }
+
+
+
+
+    public List<String> getAllEleveByProf(String IdProfesseur){
+        List<String> listeEleves = new ArrayList<>();
+        Cursor c = db.rawQuery("SELECT "+COL_NOM_ELEVE+" FROM tEleve INNER JOIN tProfesseur on "+TABLE_ELEVE+"."+COL_FK_PROFESSEUR_ELEVE+"="+TABLE_PROFESSEUR+"."+COL_ID_PROFESSEUR+" WHERE "+COL_FK_PROFESSEUR_ELEVE+"="+IdProfesseur+";", null);
+        if(c.moveToFirst()){
+            do{
+                listeEleves.add(c.getString(0));
+            } while(c.moveToNext());
+        }
+        c.close();
+        return listeEleves;
+    }
+
 
 }
