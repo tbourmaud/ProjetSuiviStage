@@ -1,11 +1,11 @@
 package com.example.projetsuivistage;
 
-public class TuteurProfesseur {
+public class Professeur {
 
     protected String Nom;
     protected String Email;
 
-    public TuteurProfesseur(String Nom, String Email){
+    public Professeur(String Nom, String Email){
         this.Nom = Nom;
         this.Email = Email;
     }

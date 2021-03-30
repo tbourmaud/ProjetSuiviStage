@@ -4,6 +4,10 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.Cursor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -130,6 +134,22 @@ public class DAOBdd {
         db.close();
         return null;
     }
+
+
+
+
+    public List<String> getAllEleveByProf(String IdProfesseur){
+        List<String> listeEleves = new ArrayList<>();
+        Cursor c = db.rawQuery("SELECT "+COL_NOM_ELEVE+" FROM tEleve INNER JOIN tProfesseur on "+TABLE_ELEVE+"."+COL_FK_PROFESSEUR_ELEVE+"="+TABLE_PROFESSEUR+"."+COL_ID_PROFESSEUR+" WHERE "+COL_FK_PROFESSEUR_ELEVE+"="+IdProfesseur+";", null);
+        if(c.moveToFirst()){
+            do{
+                listeEleves.add(c.getString(0));
+            } while(c.moveToNext());
+        }
+        c.close();
+        return listeEleves;
+    }
+
 
     // Permet de retourner une liste contenant uniquement le noms des professeurs
     public List<String> getAllNomProf(){
