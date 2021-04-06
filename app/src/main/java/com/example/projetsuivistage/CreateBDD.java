@@ -12,9 +12,9 @@ public class CreateBDD extends SQLiteOpenHelper{
     //table Entreprise
     public static final String TABLE_ENTREPRISE = "tEntreprise";
     static final String COL_ID_ENTREPRISE = "_id_entreprise";
-    private static final String COL_NOM_ENTREPRISE = "Raison sociale";
+    private static final String COL_NOM_ENTREPRISE = "Raison_sociale";
     private static final String COL_ADRESSE_ENTREPRISE = "Adresse";
-    private static final String COL_CODEPOSTAL_ENTREPRISE = "Code Postal";
+    private static final String COL_CODEPOSTAL_ENTREPRISE = "Code_Postal";
     private static final String COL_VILLE_ENTREPRISE = "Ville";
     private static final String COL_TELEPHONE_ENTREPRISE = "Téléphone";
 
@@ -32,7 +32,6 @@ public class CreateBDD extends SQLiteOpenHelper{
     private static final String CREATE_TABLE_TUTEUR_ENTREPRISE = "CREATE TABLE " + TABLE_TUTEUR_ENTREPRISE + " (" + COL_ID_TUTEUR_ENTREPRISE + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_NOM_TUTEUR_ENTREPRISE + " TEXT NOT NULL, " + COL_PRENOM_TUTEUR_ENTREPRISE + " TEXT NOT NULL, " + COL_MAIL_TUTEUR_ENTREPRISE + " TEXT NOT NULL, " + COL_FONCTION_TUTEUR_ENTREPRISE + " TEXT NOT NULL, " + COL_TELEPHONE_TUTEUR_ENTREPRISE + " TEXT NOT NULL);";
 
     //table professeur
-
     public static final String TABLE_PROFESSEUR = "tProfesseur";
     static final String COL_ID_PROFESSEUR = "_id_professeur";
     private static final String COL_NOM_PROFESSEUR = "Nom";
@@ -57,14 +56,14 @@ public class CreateBDD extends SQLiteOpenHelper{
     private static final String COL_INTITULE_STAGE = "Intitulé";
     private static final String COL_DEBUT_STAGE = "Début";
     private static final String COL_FIN_STAGE = "Fin";
-    private static final String COL_DATE_VISITE_STAGE = "Date visite";
-    private static final String COL_COMPTE_RENDU_STAGE = "Compte rendu";
+    private static final String COL_DATE_VISITE_STAGE = "Date_visite";
+    private static final String COL_COMPTE_RENDU_STAGE = "Compte_rendu";
     private static final String COL_CONDITIONS_STAGE = "Conditions";
-    private static final String COL_BILAN_TRAVAUX_STAGE = "Bilan travaux réalisés";
-    private static final String COL_RESSOURCES_OUTILS_STAGE = "Ressources stage";
+    private static final String COL_BILAN_TRAVAUX_STAGE = "Bilan_travaux_réalisés";
+    private static final String COL_RESSOURCES_OUTILS_STAGE = "Ressources_stage";
     private static final String COL_COMMENTAIRE_STAGE = "Commentaire";
     private static final String COL_JURY_STAGE = "Jury";
-    private static final String COL_OPPORTUNITES_STAGE = "Opportunités stage";
+    private static final String COL_OPPORTUNITES_STAGE = "Opportunités_stage";
 
     private static final String CREATE_TABLE_STAGE = "CREATE TABLE " + TABLE_STAGE + " (" + COL_ID_STAGE + " INTEGER PRIMARY KEY AUTOINCREMENT," + COL_INTITULE_STAGE + " TEXT NOT NULL," + COL_DEBUT_STAGE + " TEXT NOT NULL,"
             + COL_FIN_STAGE + " TEXT NOT NULL, " + COL_DATE_VISITE_STAGE + " TEXT NOT NULL, " + COL_COMPTE_RENDU_STAGE + " TEXT NOT NULL, " + COL_CONDITIONS_STAGE + " TEXT NOT NULL, " + COL_BILAN_TRAVAUX_STAGE
