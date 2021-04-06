@@ -197,6 +197,10 @@ public class DAOBdd {
         db.execSQL("delete from "+ TABLE_PROFESSEUR);
         db.close();
     }
-
+    public void deleteEleves(){
+        db.execSQL("DELETE FROM SQLITE_SEQUENCE WHERE NAME = '" + TABLE_ELEVE + "'");
+        db.execSQL("delete from "+ TABLE_ELEVE);
+        db.close();
+    }
 
 }

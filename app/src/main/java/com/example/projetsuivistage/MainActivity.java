@@ -127,5 +127,38 @@ public class MainActivity extends AppCompatActivity {
         daoBdd.open();
         daoBdd.deleteProfs();
     }
+
+    public void remplirEleves(){
+        DAOBdd daoBdd = new DAOBdd(this);
+        Eleve eleve10 = new Eleve("Stephan-Mobe", "Enzoent", "2SLAM", "SLAM", "1", "1");
+        Eleve eleve11 = new Eleve("Traineau", "Bastien", "2SLAM", "SLAM", "1", "1");
+        Eleve eleve20 = new Eleve("Début", "Kevin", "1SIO", "SLAM", "2", "2");
+        Eleve eleve21 = new Eleve("Test", "Flavienne", "1SIO", "SLAM", "2", "2");
+        Eleve eleve30 = new Eleve("Ok", "Pol", "1SIO", "SISR", "3", "3");
+        Eleve eleve31 = new Eleve("Braus", "Sasha", "1SIO", "SISR", "3", "3");
+        Eleve eleve40 = new Eleve("Jäger", "Eren", "1SIO", "SISR", "4", "4");
+        Eleve eleve41 = new Eleve("Ackerman", "Mikasa", "1SIO", "SLAM", "4", "4");
+        //on ouvre la base de données
+        daoBdd.open();
+        //on insère les lacs
+        daoBdd.insererEleve(eleve10);
+        daoBdd.insererEleve(eleve11);
+        daoBdd.insererEleve(eleve20);
+        daoBdd.insererEleve(eleve21);
+        daoBdd.insererEleve(eleve30);
+        daoBdd.insererEleve(eleve31);
+        daoBdd.insererEleve(eleve40);
+        daoBdd.insererEleve(eleve41);
+        //le curseur pour afficher le nombre de professeurs dans la base
+        //Cursor c = daoBdd.getDataProf();
+        //Toast.makeText(getApplicationContext(), " il y a " + String.valueOf(c.getCount()) + " lacs ", Toast.LENGTH_LONG).show();
+    }
+
+
+    public void deleteEleves() {
+        DAOBdd daoBdd = new DAOBdd(this);
+        daoBdd.open();
+        daoBdd.deleteEleves();
+    }
 }
 
