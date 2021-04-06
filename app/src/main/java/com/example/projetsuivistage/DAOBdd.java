@@ -165,6 +165,20 @@ public class DAOBdd {
         return listeNomProfs;
     }
 
+    // Permet de retourner une liste contenant uniquement le noms des élèves
+    public List<String> getAllNomEleves(){
+        List<String> listeNomEleves = new ArrayList<>();
+        Cursor c = db.rawQuery("SELECT Prenom, Nom FROM tEleve", null);
+        if(c.moveToFirst()) {
+            do {
+                listeNomEleves.add(c.getString(0));
+            } while (c.moveToNext());
+        }
+        c.close();
+        //db.close();
+        return listeNomEleves;
+    }
+
 
     public long insererProf (Professeur unProf){
         //Création d'un ContentValues (fonctionne comme une HashMap)

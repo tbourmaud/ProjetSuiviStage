@@ -20,10 +20,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.accueil);
 
-        // Vide la table profs
+        // Vide les tables
         deleteProfs();
-        // Ajoute 4 profs dans la bdd
+        deleteEleves();
+        // Remplit les tables
         remplirProfs();
+        remplirEleves();
+
 
 
         Button btnValider = (Button) findViewById(R.id.btnValiderAccueil);
@@ -47,11 +50,11 @@ public class MainActivity extends AppCompatActivity {
         btnValider.setOnClickListener(ecouteur);
 
 
-        //gestion de la liste déroulante des profs
+        // Gestion de la liste déroulante des profs
         final Spinner spinnerProf = (Spinner) findViewById(R.id.spinnerProf);
-        //        Création d'une instance de la classe DAObdd
+        // Création d'une instance de la classe DAObdd
         final DAOBdd daoBdd = new DAOBdd(this);
-        //On ouvre la table
+        // On ouvre la table
         daoBdd.open();
         // On récupère le nom de tous les professeurs
         List lesProfs = daoBdd.getAllNomProf();
@@ -61,37 +64,30 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> dataAdapterR = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lesProfs);
             dataAdapterR.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinnerProf.setAdapter(dataAdapterR);
-            spinnerProf.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-
-        {
+            spinnerProf.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected (AdapterView < ? > parent, View view,int position, long id){
                 String unProf = String.valueOf(spinnerProf.getSelectedItem());
-            //Toast.makeText(NewReleveActivity.this, "Vous avez choisi : " + "\nl'heure : " + uneHeure[0], Toast.LENGTH_SHORT).show();
-        }
-
+            }
             @Override
             public void onNothingSelected (AdapterView < ? > adapterView){
-
         }
         });
 
-        //gestion de la liste déroulante des élèves
+        // Gestion de la liste déroulante des élèves
         final Spinner spinnerEleves = (Spinner) findViewById(R.id.spinnerEleves);
-//        Création d'une instance de la classe DAObdd
-//        final DAOBdd daoBdd = new DAOBdd(this);
-//        //On ouvre la table
-//        daoBdd.open();
-//        // On récupère le nom de tous les élèves en fonction du professeur
-//        List lesEleves = daoBdd.getAllElevesByProfesseur();
-//        daoBdd.close();
+        // Création d'une instance de la classe DAObdd
+        final DAOBdd daoBdd1 = new DAOBdd(this);
+        // On ouvre la table
+        daoBdd1.open();
+        // On récupère le nom de tous les élèves en fonction du professeur
+        List lesEleves = daoBdd1.getAllNomEleves();
+        daoBdd1.close();
 
-        String[] lesEleves = {"Thomas", "Kevin", "bastiens"};
+        //String[] lesEleves = {"Thomas", "Kevin", "bastiens"};
         ArrayAdapter<String> dataAdapterEleves = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lesEleves);
         dataAdapterEleves.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerEleves.setAdapter(dataAdapterEleves);
-        spinnerEleves.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-
-        {
+        spinnerEleves.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected (AdapterView < ? > parent, View view,int position, long id){
                 String unEleves = String.valueOf(spinnerEleves.getSelectedItem());
                 //Toast.makeText(NewReleveActivity.this, "Vous avez choisi : " + "\nl'heure : " + uneHeure[0], Toast.LENGTH_SHORT).show();
@@ -117,9 +113,6 @@ public class MainActivity extends AppCompatActivity {
         daoBdd.insererProf(prof2);
         daoBdd.insererProf(prof3);
         daoBdd.insererProf(prof4);
-        //le curseur pour afficher le nombre de professeurs dans la base
-        //Cursor c = daoBdd.getDataProf();
-        //Toast.makeText(getApplicationContext(), " il y a " + String.valueOf(c.getCount()) + " lacs ", Toast.LENGTH_LONG).show();
     }
 
     public void deleteProfs() {
