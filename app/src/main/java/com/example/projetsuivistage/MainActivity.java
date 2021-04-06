@@ -132,11 +132,11 @@ public class MainActivity extends AppCompatActivity {
         DAOBdd daoBdd = new DAOBdd(this);
         Eleve eleve10 = new Eleve("Stephan-Mobe", "Enzoent", "2SLAM", "SLAM", "1", "1");
         Eleve eleve11 = new Eleve("Traineau", "Bastien", "2SLAM", "SLAM", "1", "1");
-        Eleve eleve20 = new Eleve("Début", "Kevin", "1SIO", "SLAM", "2", "2");
-        Eleve eleve21 = new Eleve("Test", "Flavienne", "1SIO", "SLAM", "2", "2");
-        Eleve eleve30 = new Eleve("Ok", "Pol", "1SIO", "SISR", "3", "3");
-        Eleve eleve31 = new Eleve("Braus", "Sasha", "1SIO", "SISR", "3", "3");
-        Eleve eleve40 = new Eleve("Jäger", "Eren", "1SIO", "SISR", "4", "4");
+        Eleve eleve20 = new Eleve("Début", "Kevin", "1SIO", "SLAM", "2", "4");
+        Eleve eleve21 = new Eleve("Test", "Flavienne", "1SIO", "SLAM", "2", "3");
+        Eleve eleve30 = new Eleve("Ok", "Pol", "1SIO", "SISR", "3", "2");
+        Eleve eleve31 = new Eleve("Braus", "Sasha", "1SIO", "SISR", "3", "5");
+        Eleve eleve40 = new Eleve("Jäger", "Eren", "1SIO", "SISR", "4", "5");
         Eleve eleve41 = new Eleve("Ackerman", "Mikasa", "1SIO", "SLAM", "4", "4");
         //on ouvre la base de données
         daoBdd.open();
@@ -160,5 +160,33 @@ public class MainActivity extends AppCompatActivity {
         daoBdd.open();
         daoBdd.deleteEleves();
     }
+
+    public void remplirTuteursEntreprise(){
+        DAOBdd daoBdd = new DAOBdd(this);
+        TuteurEntreprise te1 = new TuteurEntreprise("Jacquemonde", "Jean", "jj@gmail.com", "1234567890","Manager");
+        TuteurEntreprise te2 = new TuteurEntreprise("Ackerman", "Levi", "la@snk.eld", "0404040404","Développeur");
+        TuteurEntreprise te3 = new TuteurEntreprise("Test", "Testman", "test@testdomaine.fr", "0101010101","Patron");
+        TuteurEntreprise te4 = new TuteurEntreprise("Vent", "Relou", "rvent@stop.hernandez", "9247384322","Manager");
+        TuteurEntreprise te5 = new TuteurEntreprise("Promise", "Isabella", "ip@orange.com", "0105080206","Technicienne");
+
+
+        //on ouvre la base de données
+        daoBdd.open();
+        //on insère les lacs
+        daoBdd.insererTuteurEntreprise(te1);
+        daoBdd.insererTuteurEntreprise(te2);
+        daoBdd.insererTuteurEntreprise(te3);
+        daoBdd.insererTuteurEntreprise(te4);
+        daoBdd.insererTuteurEntreprise(te5);
+        //le curseur pour afficher le nombre de professeurs dans la base
+        //Cursor c = daoBdd.getDataProf();
+        //Toast.makeText(getApplicationContext(), " il y a " + String.valueOf(c.getCount()) + " lacs ", Toast.LENGTH_LONG).show();
+    }
+    public void deleteTuteursEntreprise() {
+        DAOBdd daoBdd = new DAOBdd(this);
+        daoBdd.open();
+        daoBdd.deleteTuteursEntreprise();
+    }
+
 }
 

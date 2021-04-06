@@ -192,6 +192,21 @@ public class DAOBdd {
         return db.insert(TABLE_ELEVE, null, values);
     }
 
+    public long insererTuteurEntreprise (TuteurEntreprise unTuteurEntreprise){
+        //Création d'un ContentValues (fonctionne comme une HashMap)
+        ContentValues values = new ContentValues();
+
+        //On lui ajoute une valeur associé à une clé (qui est le nom de la colonne où on veut mettre la valeur)
+        values.put(COL_NOM_TUTEUR_ENTREPRISE, unTuteurEntreprise.getNom());
+        values.put(COL_PRENOM_TUTEUR_ENTREPRISE, unTuteurEntreprise.getPrenom());
+        values.put(COL_MAIL_TUTEUR_ENTREPRISE, unTuteurEntreprise.getEmail());
+        values.put(COL_TELEPHONE_TUTEUR_ENTREPRISE, unTuteurEntreprise.getTelephone());
+        values.put(COL_FONCTION_TUTEUR_ENTREPRISE, unTuteurEntreprise.getFonction());
+
+        //On insère l'objet danas la BDD via le ContentValues
+        return db.insert(TABLE_TUTEUR_ENTREPRISE, null, values);
+    }
+
     public void deleteProfs(){
         db.execSQL("DELETE FROM SQLITE_SEQUENCE WHERE NAME = '" + TABLE_PROFESSEUR + "'");
         db.execSQL("delete from "+ TABLE_PROFESSEUR);
@@ -203,4 +218,9 @@ public class DAOBdd {
         db.close();
     }
 
+    public void deleteTuteursEntreprise(){
+        db.execSQL("DELETE FROM SQLITE_SEQUENCE WHERE NAME = '" + TABLE_TUTEUR_ENTREPRISE + "'");
+        db.execSQL("delete from "+ TABLE_ELEVE);
+        db.close();
+    }
 }
