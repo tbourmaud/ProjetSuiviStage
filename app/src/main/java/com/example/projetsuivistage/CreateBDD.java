@@ -47,8 +47,11 @@ public class CreateBDD extends SQLiteOpenHelper{
     private static final String COL_PRENOM_ELEVE = "Prénom";
     private static final String COL_CLASSE_ELEVE = "Classe";
     private static final String COL_SPECIALITE_ELEVE = "Spécialité";
+    private static final String COL_FK_PROFESSEUR_ELEVE = "id_professeur_eleve";
+    private static final String COL_FK_TUTEUR_ELEVE = "id_tuteur_eleve";
+
     private static final String CREATE_TABLE_ELEVE = "CREATE TABLE " + TABLE_ELEVE + " (" + COL_ID_ELEVE + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_NOM_ELEVE + " TEXT NOT NULL, " + COL_PRENOM_ELEVE + "TEXT NOT NULL, " + COL_CLASSE_ELEVE + " TEXT NOT NULL, " + COL_SPECIALITE_ELEVE + "TEXT NOT NULL" +
-            ", FOREIGN KEY (" +COL_ID_ELEVE+ ") REFERENCES " + TABLE_PROFESSEUR + "("+ COL_ID_PROFESSEUR + "), FOREIGN KEY (" +COL_ID_ELEVE+ ") REFERENCES " + TABLE_TUTEUR_ENTREPRISE + "("+ COL_ID_TUTEUR_ENTREPRISE + "));";
+            ", FOREIGN KEY (" +COL_ID_ELEVE+ ") REFERENCES " + TABLE_PROFESSEUR + "("+ COL_FK_PROFESSEUR_ELEVE + "), FOREIGN KEY (" +COL_ID_ELEVE+ ") REFERENCES " + TABLE_TUTEUR_ENTREPRISE + "("+ COL_FK_TUTEUR_ELEVE + "));";
 
     //table Stage
     public static final String TABLE_STAGE = "tStage";
@@ -64,15 +67,19 @@ public class CreateBDD extends SQLiteOpenHelper{
     private static final String COL_COMMENTAIRE_STAGE = "Commentaire";
     private static final String COL_JURY_STAGE = "Jury";
     private static final String COL_OPPORTUNITES_STAGE = "Opportunités_stage";
+    private static final String COL_FK_PROFESSEUR_STAGE = "id_professeur_stage";
+    private static final String COL_FK_TUTEUR_STAGE = "id_tuteur_stage";
+    private static final String COL_FK_ELEVE_STAGE = "id_eleve_stage";
+    private static final String COL_FK_ENTREPRISE_STAGE = "id_entreprise_stage";
 
     private static final String CREATE_TABLE_STAGE = "CREATE TABLE " + TABLE_STAGE + " (" + COL_ID_STAGE + " INTEGER PRIMARY KEY AUTOINCREMENT," + COL_INTITULE_STAGE + " TEXT NOT NULL," + COL_DEBUT_STAGE + " TEXT NOT NULL,"
             + COL_FIN_STAGE + " TEXT NOT NULL, " + COL_DATE_VISITE_STAGE + " TEXT NOT NULL, " + COL_COMPTE_RENDU_STAGE + " TEXT NOT NULL, " + COL_CONDITIONS_STAGE + " TEXT NOT NULL, " + COL_BILAN_TRAVAUX_STAGE
             + " TEXT NOT NULL," + COL_RESSOURCES_OUTILS_STAGE + " TEXT NOT NULL,"
             + COL_COMMENTAIRE_STAGE + " TEXT NOT NULL, " + COL_JURY_STAGE + " TEXT NOT NULL," + COL_OPPORTUNITES_STAGE + "TEXT NOT NULL," +
-            " FOREIGN KEY (" +COL_ID_STAGE+ ") REFERENCES " + TABLE_ENTREPRISE + "("+ COL_ID_ENTREPRISE + ")," +
-            " FOREIGN KEY (" +COL_ID_STAGE+ ") REFERENCES " + TABLE_PROFESSEUR + "("+ COL_ID_PROFESSEUR + ")," +
-            " FOREIGN KEY (" +COL_ID_STAGE+ ") REFERENCES " + TABLE_TUTEUR_ENTREPRISE + "("+ COL_ID_TUTEUR_ENTREPRISE + ")," +
-            " FOREIGN KEY (" +COL_ID_STAGE+ ") REFERENCES " + TABLE_ELEVE + "("+ COL_ID_ELEVE + "));";
+            " FOREIGN KEY (" +COL_ID_STAGE+ ") REFERENCES " + TABLE_ENTREPRISE + "("+ COL_FK_ENTREPRISE_STAGE + ")," +
+            " FOREIGN KEY (" +COL_ID_STAGE+ ") REFERENCES " + TABLE_PROFESSEUR + "("+ COL_FK_PROFESSEUR_STAGE + ")," +
+            " FOREIGN KEY (" +COL_ID_STAGE+ ") REFERENCES " + TABLE_TUTEUR_ENTREPRISE + "("+ COL_FK_TUTEUR_STAGE + ")," +
+            " FOREIGN KEY (" +COL_ID_STAGE+ ") REFERENCES " + TABLE_ELEVE + "("+ COL_FK_ELEVE_STAGE + "));";
 
 
 /*
