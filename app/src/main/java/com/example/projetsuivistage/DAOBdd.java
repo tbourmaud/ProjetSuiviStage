@@ -157,7 +157,7 @@ public class DAOBdd {
         Cursor c = db.rawQuery("SELECT Nom FROM tProfesseur", null);
         if(c.moveToFirst()) {
             do {
-                listeNomProfs.add(c.getString(1));
+                listeNomProfs.add(c.getString(0));
             } while (c.moveToNext());
         }
         c.close();
@@ -187,6 +187,12 @@ public class DAOBdd {
         values.put(COL_SPECIALITE_ELEVE, unEleve.getSpecialite());
         //on insère l'objet dans la BDD via le ContentValues
         return db.insert(TABLE_ELEVE, null, values);
+    }
+
+    public void deleteProfs(){
+        db.execSQL("DELETE FROM SQLITE_SEQUENCE WHERE NAME = '" + TABLE_PROFESSEUR + "'");
+        db.execSQL("delete from "+ TABLE_PROFESSEUR);
+        db.close();
     }
 
 

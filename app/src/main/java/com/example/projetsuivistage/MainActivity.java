@@ -20,6 +20,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.accueil);
 
+        // Vide la table profs
+        deleteProfs();
+        // Ajoute 4 profs dans la bdd
+        remplirProfs();
+
+
         Button btnValider = (Button) findViewById(R.id.btnValiderAccueil);
 
         //on va créer un écouteur pour un groupe de boutons
@@ -114,6 +120,12 @@ public class MainActivity extends AppCompatActivity {
         //le curseur pour afficher le nombre de professeurs dans la base
         //Cursor c = daoBdd.getDataProf();
         //Toast.makeText(getApplicationContext(), " il y a " + String.valueOf(c.getCount()) + " lacs ", Toast.LENGTH_LONG).show();
+    }
+
+    public void deleteProfs() {
+        DAOBdd daoBdd = new DAOBdd(this);
+        daoBdd.open();
+        daoBdd.deleteProfs();
     }
 }
 
