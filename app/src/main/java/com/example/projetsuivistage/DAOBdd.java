@@ -185,6 +185,9 @@ public class DAOBdd {
         values.put(COL_PRENOM_ELEVE, unEleve.getPrenom());
         values.put(COL_CLASSE_ELEVE, unEleve.getClasse());
         values.put(COL_SPECIALITE_ELEVE, unEleve.getSpecialite());
+        values.put(COL_FK_PROFESSEUR_ELEVE, unEleve.getId_professeur());
+        values.put(COL_FK_TUTEUR_ENTREPRISE_ELEVE, unEleve.getId_tuteur_entreprise());
+
         //on insère l'objet dans la BDD via le ContentValues
         return db.insert(TABLE_ELEVE, null, values);
     }

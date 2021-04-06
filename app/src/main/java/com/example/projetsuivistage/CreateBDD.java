@@ -75,9 +75,7 @@ public class CreateBDD extends SQLiteOpenHelper{
             " FOREIGN KEY (" +COL_ID_STAGE+ ") REFERENCES " + TABLE_ELEVE + "("+ COL_ID_ELEVE + "));";
 
 
-
 /*
-
     private static final String ALTER_TABLE_ELEVE = "ALTER TABLE " + TABLE_ELEVE + " ADD FOREIGN KEY (" + COL_ID_ELEVE + ") REFERENCES " + TABLE_PROFESSEUR +"(" + COL_ID_PROFESSEUR
             + " ), ADD FOREIGN KEY + (" + COL_ID_ELEVE + ") REFERENCES " + TABLE_TUTEUR_ENTREPRISE + " (" + COL_ID_TUTEUR_ENTREPRISE + ");";
 
@@ -85,7 +83,6 @@ public class CreateBDD extends SQLiteOpenHelper{
             + "), ADD FOREIGN KEY (" + COL_ID_STAGE + ") REFERENCES " + TABLE_PROFESSEUR + " (" + COL_ID_PROFESSEUR
             + "), ADD FOREIGN KEY (" + COL_ID_STAGE + ") REFERENCES " + TABLE_TUTEUR_ENTREPRISE + " (" + COL_ID_TUTEUR_ENTREPRISE
             + "), ADD FOREIGN KEY (" + COL_ID_STAGE + ") REFERENCES " + TABLE_ELEVE + " (" + COL_ID_ELEVE + ");";
-
 */
 
     public CreateBDD(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
