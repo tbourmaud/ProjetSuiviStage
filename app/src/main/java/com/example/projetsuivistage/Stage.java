@@ -13,15 +13,15 @@ public class Stage {
     protected String CommentairesAppreciation;
     protected String Jury;
     protected String OpportunitesStage;
-    protected String Id_Eleve;
-    protected String Id_Entreprise;
-    protected String Id_Professeur;
-    protected String Id_Tuteur;
+    protected String id_Eleve;
+    protected String id_Entreprise;
+    protected String id_Professeur;
+    protected String id_Tuteur;
 
 
 
     public Stage (String Intitule, String Debut, String Fin, String Visite, String CompteRendu, String ConditionsStage, String BilanTravauxRealises, String RessourcesOutils, String CommentairesAppreciation,
-                  String Jury, String OpportunitesStage, String Id_Eleve, String Id_Entreprise, String ID_Professeur, String Id_Tuteur){
+                  String Jury, String OpportunitesStage, String id_Eleve, String id_Entreprise, String id_Professeur, String id_Tuteur){
 
         this.Intitule = Intitule;
         this.Debut = Debut;
@@ -34,10 +34,10 @@ public class Stage {
         this.CommentairesAppreciation = CommentairesAppreciation;
         this.Jury = Jury;
         this.OpportunitesStage = OpportunitesStage;
-        this.Id_Eleve = Id_Eleve;
-        this.Id_Entreprise = Id_Entreprise;
-        this.Id_Professeur = ID_Professeur;
-        this.Id_Tuteur = Id_Tuteur;
+        this.id_Eleve = id_Eleve;
+        this.id_Entreprise = id_Entreprise;
+        this.id_Professeur = id_Professeur;
+        this.id_Tuteur = id_Tuteur;
     }
 
     public String getIntitule() {
@@ -129,34 +129,34 @@ public class Stage {
     }
 
     public String getId_Eleve() {
-        return Id_Eleve;
+        return id_Eleve;
     }
 
     public void setId_Eleve(String id_Eleve) {
-        Id_Eleve = id_Eleve;
+        id_Eleve = id_Eleve;
     }
 
     public String getId_Entreprise() {
-        return Id_Entreprise;
+        return id_Entreprise;
     }
 
     public void setId_Entreprise(String id_Entreprise) {
-        Id_Entreprise = id_Entreprise;
+        id_Entreprise = id_Entreprise;
     }
 
     public String getId_Professeur() {
-        return Id_Professeur;
+        return id_Professeur;
     }
 
     public void setId_Professeur(String id_Professeur) {
-        Id_Professeur = id_Professeur;
+        id_Professeur = id_Professeur;
     }
 
     public String getId_Tuteur() {
-        return Id_Tuteur;
+        return id_Tuteur;
     }
 
     public void setId_Tuteur(String id_Tuteur) {
-        Id_Tuteur = id_Tuteur;
+        id_Tuteur = id_Tuteur;
     }
 }
