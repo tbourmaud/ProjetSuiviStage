@@ -37,9 +37,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="date"
+            android:inputType="none"
             android:hint="@string/nom_stg"
-            android:autofillHints="" />
+            android:autofillHints=""/>
 
         <TextView
             android:id="@+id/textPrenomStg"
@@ -54,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="date"
+            android:inputType="none"
             android:hint="@string/prenom_stg"
             android:autofillHints="" />
 

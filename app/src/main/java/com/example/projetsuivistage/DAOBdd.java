@@ -134,21 +134,6 @@ public class DAOBdd {
     }
 
 
-
-
-    public List<String> getAllEleveByProf(String IdProfesseur){
-        List<String> listeEleves = new ArrayList<>();
-        Cursor c = db.rawQuery("SELECT "+COL_NOM_ELEVE+" FROM tEleve INNER JOIN tProfesseur on "+TABLE_ELEVE+"."+COL_FK_PROFESSEUR_ELEVE+"="+TABLE_PROFESSEUR+"."+COL_ID_PROFESSEUR+" WHERE "+COL_FK_PROFESSEUR_ELEVE+"="+IdProfesseur+";", null);
-        if(c.moveToFirst()){
-            do{
-                listeEleves.add(c.getString(0));
-            } while(c.moveToNext());
-        }
-        c.close();
-        return listeEleves;
-    }
-
-
     // Permet de retourner une liste contenant uniquement le noms des professeurs
     public List<String> getAllNomProf(){
         List<String> listeNomProfs = new ArrayList<>();
@@ -200,6 +185,19 @@ public class DAOBdd {
         }
         c.close();
         return idProf;
+    }
+
+    // Retourne les infos d'un élève depuis son nom
+    public List<String> getEleveByPrenom(String prenomEleve) {
+        List<String> infoEleve = new ArrayList<>();
+        Cursor c = db.rawQuery("SELECT * FROM tEleve WHERE prenom = "+"'"+prenomEleve+"'", null);
+        if(c.moveToFirst()) {
+            infoEleve.add(c.getString(1));
+            infoEleve.add(c.getString(2));
+            infoEleve.add(c.getString(4));
+        }
+        c.close();
+        return infoEleve;
     }
 
 

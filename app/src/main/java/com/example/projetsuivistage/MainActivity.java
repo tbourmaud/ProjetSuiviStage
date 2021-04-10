@@ -3,6 +3,7 @@ package com.example.projetsuivistage;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +16,7 @@ import android.widget.Toast;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    //test pour voir
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +29,12 @@ public class MainActivity extends AppCompatActivity {
         remplirProfs();
         remplirEleves();
 
+        // SharedPreferences
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+        final SharedPreferences.Editor editor = pref.edit();
 
+        // Eleve choisi via le spinner
+        final String[] unEleve = new String[1];
 
         Button btnValider = (Button) findViewById(R.id.btnValiderAccueil);
 
@@ -42,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
                         // clear
                         break;
                     case R.id.btnValiderAccueil:
+                        // L'élève choisi est envoyé dans le SharedPreferences
+                        editor.putString("unEleve", unEleve[0]);
+                        editor.commit();
+
                         Intent intent = new Intent(MainActivity.this, InformationStageActivity.class);
                         startActivity(intent);
                         break;
@@ -73,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             spinnerProf.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected (AdapterView < ? > parent, View view,int position, long id){
                 String unProf = String.valueOf(spinnerProf.getSelectedItem());
-                Toast.makeText(MainActivity.this, unProf, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, unProf, Toast.LENGTH_SHORT).show();
 
                 // On ouvre la bdd pour récupérer les élèves en fonction de l'id du prof sélectionné
                 daoBdd.open();
@@ -96,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
         spinnerEleves.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected (AdapterView < ? > parent, View view,int position, long id){
-                String unEleve = String.valueOf(spinnerEleves.getSelectedItem());
+                unEleve[0] = String.valueOf(spinnerEleves.getSelectedItem());
                 //Toast.makeText(NewReleveActivity.this, "Vous avez choisi : " + "\nl'élève : " + unEleve[0], Toast.LENGTH_SHORT).show();
             }
 
@@ -140,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
         Eleve eleve41 = new Eleve("Ackerman", "Mikasa", "1SIO", "SLAM", "4", "4");
         //on ouvre la base de données
         daoBdd.open();
-        //on insère les lacs
+        //on insère les élèves
         daoBdd.insererEleve(eleve10);
         daoBdd.insererEleve(eleve11);
         daoBdd.insererEleve(eleve20);
