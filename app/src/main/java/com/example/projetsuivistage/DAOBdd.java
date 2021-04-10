@@ -177,6 +177,33 @@ public class DAOBdd {
         return listeNomEleves;
     }
 
+    // Permet de retourner une liste contenant uniquement le noms des élèves en fonction du prof
+    public List<String> getElevesByIdProf(String idProf){
+        List<String> listeNomEleves = new ArrayList<>();
+        Cursor c = db.rawQuery("SELECT Prenom, Nom FROM tEleve WHERE _id_professeur_eleve LIKE "+idProf, null);
+        if(c.moveToFirst()) {
+            do {
+                listeNomEleves.add(c.getString(0));
+            } while (c.moveToNext());
+        }
+        c.close();
+        //db.close();
+        return listeNomEleves;
+    }
+
+    // Permet de retourner l'id d'un prof depuis son nom
+    public String getIdByNomProf(String nomProf) {
+        String idProf = "";
+        Cursor c = db.rawQuery("SELECT * FROM tProfesseur WHERE nom = "+"'"+nomProf+"'", null);
+        if(c.moveToFirst()) {
+            idProf = c.getString(0);
+        }
+        c.close();
+        return idProf;
+    }
+
+
+
 
     public long insererProf (Professeur unProf){
         //Création d'un ContentValues (fonctionne comme une HashMap)

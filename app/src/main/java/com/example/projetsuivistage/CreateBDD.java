@@ -57,7 +57,8 @@ public class CreateBDD extends SQLiteOpenHelper{
             COL_SPECIALITE_ELEVE + " TEXT NOT NULL, " +
             COL_FK_PROFESSEUR_ELEVE + " INTEGER, " +
             COL_FK_TUTEUR_ELEVE + " INTEGER "+
-            ", FOREIGN KEY (" +COL_ID_ELEVE+ ") REFERENCES " + TABLE_PROFESSEUR + "("+ COL_FK_PROFESSEUR_ELEVE + "), FOREIGN KEY (" +COL_ID_ELEVE+ ") REFERENCES " + TABLE_TUTEUR_ENTREPRISE + "("+ COL_FK_TUTEUR_ELEVE + "));";
+            ", FOREIGN KEY (" +COL_ID_ELEVE+ ") REFERENCES " + TABLE_PROFESSEUR + "("+ COL_FK_PROFESSEUR_ELEVE + "), " +
+            "FOREIGN KEY (" +COL_ID_ELEVE+ ") REFERENCES " + TABLE_TUTEUR_ENTREPRISE + "("+ COL_FK_TUTEUR_ELEVE + "));";
 
     //table Stage
     public static final String TABLE_STAGE = "tStage";

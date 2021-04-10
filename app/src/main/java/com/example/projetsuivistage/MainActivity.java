@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -58,7 +59,12 @@ public class MainActivity extends AppCompatActivity {
         daoBdd.open();
         // On récupère le nom de tous les professeurs
         List lesProfs = daoBdd.getAllNomProf();
-        daoBdd.close();
+
+        // Liste Eleves
+        final List[] lesEleves = new List[1];
+        // spinner Eleves
+        final Spinner spinnerEleves = (Spinner) findViewById(R.id.spinnerEleves);
+
 
         //String[] lesProfs = {"M. Bourgeois", "Kevin", "Mme. Contant"};
         ArrayAdapter<String> dataAdapterR = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lesProfs);
@@ -67,30 +73,31 @@ public class MainActivity extends AppCompatActivity {
             spinnerProf.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected (AdapterView < ? > parent, View view,int position, long id){
                 String unProf = String.valueOf(spinnerProf.getSelectedItem());
+                Toast.makeText(MainActivity.this, unProf, Toast.LENGTH_SHORT).show();
+
+                // On ouvre la bdd pour récupérer les élèves en fonction de l'id du prof sélectionné
+                daoBdd.open();
+                lesEleves[0] = daoBdd.getElevesByIdProf(daoBdd.getIdByNomProf(unProf));
+                daoBdd.close();
+
+                // Gestion de l'affichage du spinner Eleves
+                ArrayAdapter<String> dataAdapterEleves = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, lesEleves[0]);
+                dataAdapterEleves.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinnerEleves.setAdapter(dataAdapterEleves);
             }
             @Override
             public void onNothingSelected (AdapterView < ? > adapterView){
         }
         });
+        daoBdd.close();
 
         // Gestion de la liste déroulante des élèves
-        final Spinner spinnerEleves = (Spinner) findViewById(R.id.spinnerEleves);
-        // Création d'une instance de la classe DAObdd
-        final DAOBdd daoBdd1 = new DAOBdd(this);
-        // On ouvre la table
-        daoBdd1.open();
-        // On récupère le nom de tous les élèves en fonction du professeur
-        List lesEleves = daoBdd1.getAllNomEleves();
-        daoBdd1.close();
-
         //String[] lesEleves = {"Thomas", "Kevin", "bastiens"};
-        ArrayAdapter<String> dataAdapterEleves = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lesEleves);
-        dataAdapterEleves.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerEleves.setAdapter(dataAdapterEleves);
+
         spinnerEleves.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected (AdapterView < ? > parent, View view,int position, long id){
-                String unEleves = String.valueOf(spinnerEleves.getSelectedItem());
-                //Toast.makeText(NewReleveActivity.this, "Vous avez choisi : " + "\nl'heure : " + uneHeure[0], Toast.LENGTH_SHORT).show();
+                String unEleve = String.valueOf(spinnerEleves.getSelectedItem());
+                //Toast.makeText(NewReleveActivity.this, "Vous avez choisi : " + "\nl'élève : " + unEleve[0], Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -123,9 +130,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void remplirEleves(){
         DAOBdd daoBdd = new DAOBdd(this);
-        Eleve eleve10 = new Eleve("Stephan-Mobe", "Enzoent", "2SLAM", "SLAM", "1", "1");
+        Eleve eleve10 = new Eleve("Stephan", "Enzoent", "2SLAM", "SLAM", "1", "1");
         Eleve eleve11 = new Eleve("Traineau", "Bastien", "2SLAM", "SLAM", "1", "1");
-        Eleve eleve20 = new Eleve("Début", "Kevin", "1SIO", "SLAM", "2", "4");
+        Eleve eleve20 = new Eleve("Debut", "Kevin", "1SIO", "SLAM", "2", "4");
         Eleve eleve21 = new Eleve("Test", "Flavienne", "1SIO", "SLAM", "2", "3");
         Eleve eleve30 = new Eleve("Ok", "Pol", "1SIO", "SISR", "3", "2");
         Eleve eleve31 = new Eleve("Braus", "Sasha", "1SIO", "SISR", "3", "5");
