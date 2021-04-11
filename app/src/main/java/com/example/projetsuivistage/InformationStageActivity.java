@@ -67,14 +67,14 @@ public class InformationStageActivity extends Activity {
         // Récupère les infos de l'élève depuis la bdd
         final DAOBdd daoBdd = new DAOBdd(this);
         daoBdd.open();
-        List infoEleve = daoBdd.getEleveByPrenom(unEleve);
+        List infoEleve = daoBdd.getEleveById(daoBdd.getIdByPrenomEleve(unEleve));
         daoBdd.close();
 
         // Rempli les informations de l'élève
-        Toast.makeText(InformationStageActivity.this, infoEleve.toString(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(InformationStageActivity.this, infoEleve.toString(), Toast.LENGTH_SHORT).show();
         nomEleve.setText(infoEleve.get(0).toString());
         prenomEleve.setText(infoEleve.get(1).toString());
-        Toast.makeText(InformationStageActivity.this, infoEleve.get(2).toString(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(InformationStageActivity.this, infoEleve.get(2).toString(), Toast.LENGTH_SHORT).show();
         // Active le bouton radio en fonction de l'option de l'élève
         if (infoEleve.get(2).toString().contains("SLAM")) {
             radioButtonSlam.toggle();

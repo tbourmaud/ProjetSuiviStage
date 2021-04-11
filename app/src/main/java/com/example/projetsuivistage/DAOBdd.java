@@ -187,10 +187,21 @@ public class DAOBdd {
         return idProf;
     }
 
-    // Retourne les infos d'un élève depuis son nom
-    public List<String> getEleveByPrenom(String prenomEleve) {
+    // Permet de retourner l'id d'un élève depuis son prenom
+    public String getIdByPrenomEleve(String prenomEleve) {
+        String idEleve = "";
+        Cursor c = db.rawQuery("SELECT * FROM tEleve WHERE prenom = "+"'"+prenomEleve+"'", null);
+        if(c.moveToFirst()) {
+            idEleve = c.getString(0);
+        }
+        c.close();
+        return idEleve;
+    }
+
+    // Retourne les infos d'un élève depuis son id
+    public List<String> getEleveById(String idEleve) {
         List<String> infoEleve = new ArrayList<>();
-        Cursor c = db.rawQuery("SELECT * FROM tEleve WHERE tEleve.prenom = "+"'"+prenomEleve+"' ", null);
+        Cursor c = db.rawQuery("SELECT * FROM tEleve WHERE _id_eleve = "+"'"+idEleve+"' ", null);
         if(c.moveToFirst()) {
             infoEleve.add(c.getString(1)); // Nom
             infoEleve.add(c.getString(2)); // Prenom
