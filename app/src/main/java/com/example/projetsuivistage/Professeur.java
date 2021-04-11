@@ -4,10 +4,12 @@ public class Professeur {
 
     protected String Nom;
     protected String Email;
+    protected String Divers;
 
-    public Professeur(String Nom, String Email){
+    public Professeur(String Nom, String Email, String Divers){
         this.Nom = Nom;
         this.Email = Email;
+        this.Divers = Divers;
     }
 
     public String getNom() {
@@ -24,5 +26,13 @@ public class Professeur {
 
     public void setEmail(String email) {
         Email = email;
+    }
+
+    public String getDivers() {
+        return Divers;
+    }
+
+    public void setDivers(String divers) {
+        Divers = divers;
     }
 }

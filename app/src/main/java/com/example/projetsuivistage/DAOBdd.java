@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DAOBdd {
-    static final int VERSION_BDD = 8;
+    static final int VERSION_BDD = 11;
     private static final String NOM_BDD = "SuiviStage.db";
 
     //table Stage
@@ -211,6 +211,22 @@ public class DAOBdd {
         return infoEleve;
     }
 
+    public List<String> getStageByIdEleve(String id_eleve){
+        List<String> infoStage = new ArrayList<>();
+        Cursor c = db.rawQuery("SELECT tp.Nom, tp.Email, s.Date_visite, tp.Divers, tte.Nom, tte.Telephone, tte.Email FROM tStage s INNER JOIN tTuteurEntreprise tte ON tte._id_tuteur=s._id_tuteur_entreprise_stage INNER JOIN tProfesseur tp ON tp._id_professeur=s._id_professeur_stage WHERE _id_eleve_stage='"+id_eleve+"';",null);
+        if(c.moveToFirst()) {
+            infoStage.add(c.getString(1)); // Nom tuteur prof
+            infoStage.add(c.getString(2)); // Email prof
+            infoStage.add(c.getString(3)); // Date Visite
+            infoStage.add(c.getString(4)); // Divers
+            infoStage.add(c.getString(5)); // Nom tuteur stage
+            infoStage.add(c.getString(6)); //Telephone Tuteur Stage
+            infoStage.add(c.getString(7)); //Email tuteur Stage
+        }
+        c.close();
+
+        return infoStage;
+    }
 
 
 
@@ -238,6 +254,27 @@ public class DAOBdd {
 
         //on insère l'objet dans la BDD via le ContentValues
         return db.insert(TABLE_ELEVE, null, values);
+    }
+
+    public long insererStage(Stage unStage){
+        ContentValues values = new ContentValues();
+        values.put(COL_INTITULE_STAGE,unStage.getIntitule());
+        values.put(COL_DEBUT_STAGE,unStage.getDebut());
+        values.put(COL_FIN_STAGE, unStage.getFin());
+        values.put(COL_DATE_VISITE_STAGE, unStage.getVisite());
+        values.put(COL_COMPTE_RENDU_STAGE,unStage.getCompteRendu());
+        values.put(COL_CONDITIONS_STAGE,unStage.getConditionsStage());
+        values.put(COL_BILAN_TRAVAUX_STAGE, unStage.getBilanTravauxRealises());
+        values.put(COL_RESSOURCES_OUTILS_STAGE,unStage.getRessourcesOutils());
+        values.put(COL_COMMENTAIRE_STAGE, unStage.getCommentairesAppreciation());
+        values.put(COL_JURY_STAGE, unStage.getJury());
+        values.put(COL_OPPORTUNITES_STAGE, unStage.getOpportunitesStage());
+        values.put(COL_FK_ID_PROFESSEUR_STAGE, unStage.getId_Professeur());
+        values.put(COL_FK_ID_TUTEUR_ENTREPRISE_STAGE, unStage.getId_Tuteur());
+        values.put(COL_FK_ID_ELEVE,unStage.getId_Eleve());
+        values.put(COL_FK_ID_ENTREPRISE_STAGE, unStage.getId_Entreprise());
+
+        return db.insert(TABLE_STAGE,null,values);
     }
 
     public long insererTuteurEntreprise (TuteurEntreprise unTuteurEntreprise){
@@ -269,6 +306,11 @@ public class DAOBdd {
     public void deleteTuteursEntreprise(){
         db.execSQL("DELETE FROM SQLITE_SEQUENCE WHERE NAME = '" + TABLE_TUTEUR_ENTREPRISE + "'");
         db.execSQL("delete from "+ TABLE_ELEVE);
+        db.close();
+    }
+    public void deleteStages(){
+        db.execSQL("DELETE FROM SQLITE_SEQUENCE WHERE NAME = '" + TABLE_STAGE + "'");
+        db.execSQL("delete from "+ TABLE_STAGE);
         db.close();
     }
 }

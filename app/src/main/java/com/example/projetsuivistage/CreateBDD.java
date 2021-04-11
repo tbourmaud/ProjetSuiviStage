@@ -36,8 +36,9 @@ public class CreateBDD extends SQLiteOpenHelper{
     static final String COL_ID_PROFESSEUR = "_id_professeur";
     private static final String COL_NOM_PROFESSEUR = "Nom";
     private static final String COL_MAIL_PROFESSEUR = "Email";
+    private static final String COL_DIVERS_PROFESSEUR = "Divers";
 
-    private static final String CREATE_TABLE_PROFESSEUR = "CREATE TABLE " + TABLE_PROFESSEUR + " (" + COL_ID_PROFESSEUR + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_NOM_PROFESSEUR + " TEXT NOT NULL, " + COL_MAIL_PROFESSEUR + " TEXT NOT NULL);";
+    private static final String CREATE_TABLE_PROFESSEUR = "CREATE TABLE " + TABLE_PROFESSEUR + " (" + COL_ID_PROFESSEUR + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_NOM_PROFESSEUR + " TEXT NOT NULL, " + COL_MAIL_PROFESSEUR + " TEXT NOT NULL,"+COL_DIVERS_PROFESSEUR+" TEXT );";
 
     //table eleve
 
@@ -84,11 +85,11 @@ public class CreateBDD extends SQLiteOpenHelper{
             COL_DEBUT_STAGE + " TEXT NOT NULL," +
             COL_FIN_STAGE + " TEXT NOT NULL, " +
             COL_DATE_VISITE_STAGE + " TEXT NOT NULL, " +
-            COL_COMPTE_RENDU_STAGE + " TEXT NOT NULL, " +
-            COL_CONDITIONS_STAGE + " TEXT NOT NULL, " +
-            COL_BILAN_TRAVAUX_STAGE + " TEXT NOT NULL," +
-            COL_RESSOURCES_OUTILS_STAGE + " TEXT NOT NULL,"
-            + COL_COMMENTAIRE_STAGE + " TEXT NOT NULL, " +
+            COL_COMPTE_RENDU_STAGE + " TEXT, " +
+            COL_CONDITIONS_STAGE + " TEXT , " +
+            COL_BILAN_TRAVAUX_STAGE + " TEXT ," +
+            COL_RESSOURCES_OUTILS_STAGE + " TEXT ," +
+            COL_COMMENTAIRE_STAGE + " TEXT , " +
             COL_JURY_STAGE + " TEXT NOT NULL," +
             COL_OPPORTUNITES_STAGE + " TEXT NOT NULL," +
             COL_FK_PROFESSEUR_STAGE + " INTEGER, " +
