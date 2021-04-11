@@ -13,6 +13,7 @@
         android:textSize="20dp"
         android:gravity="center_horizontal"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="15dp"
         />
 
     <LinearLayout
@@ -40,13 +41,13 @@
                 android:layout_height="match_parent" >
 
                 <RadioButton
-                    android:id="@+id/radioButtonOui"
+                    android:id="@+id/radioButtonOuiParticipe"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/radio_btn_oui" />
 
                 <RadioButton
-                    android:id="@+id/radioButtonNon"
+                    android:id="@+id/radioButtonNonParticipe"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="@string/radio_btn_non" />
@@ -72,13 +73,13 @@
                 android:layout_height="match_parent" >
 
                 <RadioButton
-                    android:id="@+id/radioButtonSlam"
+                    android:id="@+id/radioButtonOuiOpportunite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/radio_btn_oui" />
 
                 <RadioButton
-                    android:id="@+id/radioButtonSisr"
+                    android:id="@+id/radioButtonNonOpportunite"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="@string/radio_btn_non" />
@@ -116,7 +117,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_marginTop="65dp">
+            android:layout_marginTop="195dp">
 
             <Button
                 android:id="@+id/btnAnnulerAvis"

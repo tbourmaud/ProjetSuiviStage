@@ -211,20 +211,44 @@ public class DAOBdd {
         return infoEleve;
     }
 
-    public List<String> getStageByIdEleve(String id_eleve){
-        List<String> infoStage = new ArrayList<>();
-        Cursor c = db.rawQuery("SELECT tp.Nom, tp.Email, s.Date_visite, tp.Divers, tte.Nom, tte.Telephone, tte.Email FROM tStage s INNER JOIN tTuteurEntreprise tte ON tte._id_tuteur=s._id_tuteur_entreprise_stage INNER JOIN tProfesseur tp ON tp._id_professeur=s._id_professeur_stage WHERE _id_eleve_stage='"+id_eleve+"';",null);
+    // Retourne le bilan de stage d'un élève depuis son id
+    public List<String> getBilanByIdEleve(String idEleve) {
+        List<String> bilanStage = new ArrayList<>();
+        Cursor c = db.rawQuery("SELECT Conditions, Bilan_travaux_realises, Ressources_stage, Commentaire FROM tStage WHERE _id_eleve_stage = "+"'"+idEleve+"' ", null);
         if(c.moveToFirst()) {
-            infoStage.add(c.getString(1)); // Nom tuteur prof
-            infoStage.add(c.getString(2)); // Email prof
-            infoStage.add(c.getString(3)); // Date Visite
-            infoStage.add(c.getString(4)); // Divers
-            infoStage.add(c.getString(5)); // Nom tuteur stage
-            infoStage.add(c.getString(6)); //Telephone Tuteur Stage
-            infoStage.add(c.getString(7)); //Email tuteur Stage
+            bilanStage.add(c.getString(0)); // Condition
+            bilanStage.add(c.getString(1)); // Bilan travaux
+            bilanStage.add(c.getString(2)); // Ressources outils
+            bilanStage.add(c.getString(3)); // Commentaires
         }
         c.close();
+        return bilanStage;
+    }
 
+    public List<String> getStageByIdEleve(String id_eleve){
+        List<String> infoStage = new ArrayList<>();
+        Cursor c = db.rawQuery("SELECT tp.Nom, tp.Email, s.Date_visite, tp.Divers, tte.Nom, tte.Telephone, tte.Email FROM tStage s INNER JOIN tTuteurEntreprise tte ON tte._id_tuteur=s._id_tuteur_entreprise_stage INNER JOIN tProfesseur tp ON tp._id_professeur=s._id_professeur_stage WHERE _id_eleve_stage='"+id_eleve+"'",null);
+        if(c.moveToFirst()) {
+            infoStage.add(c.getString(0)); // Nom tuteur prof
+            infoStage.add(c.getString(1)); // Email prof
+            infoStage.add(c.getString(2)); // Date Visite
+            infoStage.add(c.getString(3)); // Divers
+            infoStage.add(c.getString(4)); // Nom tuteur stage
+            infoStage.add(c.getString(5)); //Telephone Tuteur Stage
+            infoStage.add(c.getString(6)); //Email tuteur Stage
+        }
+        c.close();
+        return infoStage;
+    }
+
+    public List<String> getAvisStageByIdEleve(String id_eleve){
+        List<String> infoStage = new ArrayList<>();
+        Cursor c = db.rawQuery("SELECT s.Jury, s.Opportunites_stage FROM tStage s INNER JOIN tTuteurEntreprise tte ON tte._id_tuteur=s._id_tuteur_entreprise_stage INNER JOIN tProfesseur tp ON tp._id_professeur=s._id_professeur_stage WHERE _id_eleve_stage='"+id_eleve+"'",null);
+        if(c.moveToFirst()) {
+            infoStage.add(c.getString(0)); // Participation au jury
+            infoStage.add(c.getString(1)); // Opportunité de stage
+        }
+        c.close();
         return infoStage;
     }
 

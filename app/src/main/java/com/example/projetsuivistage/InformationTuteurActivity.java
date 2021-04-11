@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -64,16 +65,16 @@ public class InformationTuteurActivity extends Activity {
         daoBdd.close();
 
         //Remplir les informations du stage
-
-
-
-         nomTuteurEcole.setText(infoStage.get(0).toString());
-         mailTuteurEcole.setText(infoStage.get(1).toString());
-         visiteTuteurEcole.setText(infoStage.get(2).toString());
-         diversTuteurEcole.setText(infoStage.get(3).toString());
-         nomTuteurEntreprise.setText(infoStage.get(4).toString());
-         telephoneTuteurEntreprise.setText(infoStage.get(5).toString());
-         mailTuteurEntreprise.setText(infoStage.get(6).toString());
+        //Toast.makeText(InformationTuteurActivity.this, infoStage.toString(), Toast.LENGTH_SHORT).show();
+        nomTuteurEcole.setText(infoStage.get(0).toString());
+        mailTuteurEcole.setText(infoStage.get(1).toString());
+        visiteTuteurEcole.setText(infoStage.get(2).toString());
+        if (infoStage.get(3) != null) {
+            diversTuteurEcole.setText(infoStage.get(3).toString());
+        }
+        nomTuteurEntreprise.setText(infoStage.get(4).toString());
+        telephoneTuteurEntreprise.setText(infoStage.get(5).toString());
+        mailTuteurEntreprise.setText(infoStage.get(6).toString());
 
     }
 }

@@ -35,5 +35,5 @@
     <string name="checkbox_date_mai_juin">Mai-Juin 2021</string>
     <string name="checkbox_date_janvier_fevrier">Janvier-Février 2022</string>
 
-    <string name="btn_annuler">Annuler</string>
+    <string name="btn_annuler">Retour</string>
 </resources>

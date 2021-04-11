@@ -49,7 +49,7 @@
             android:layout_marginTop="10dp"/>
 
         <EditText
-            android:id="@+id/editBilanTravaux"
+            android:id="@+id/editTextBilanTravaux"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -94,7 +94,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="35dp">
 
             <Button
 

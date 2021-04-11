@@ -25,10 +25,13 @@ public class MainActivity extends AppCompatActivity {
         // Vide les tables
         deleteProfs();
         deleteEleves();
+        deleteTuteursEntreprise();
         deleteStages();
+
         // Remplit les tables
         remplirProfs();
         remplirEleves();
+        remplirTuteursEntreprise();
         remplirStages();
 
         // SharedPreferences
@@ -47,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.btnRetourAccueil:
-                        // clear
+                        Intent intent2 = new Intent(MainActivity.this, AvisStageActivity.class);
+                        startActivity(intent2);
                         break;
                     case R.id.btnValiderAccueil:
                         // L'élève choisi est envoyé dans le SharedPreferences
@@ -101,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
             public void onNothingSelected (AdapterView < ? > adapterView){
         }
         });
-            
         daoBdd.close();
 
         // Gestion de la liste déroulante des élèves
@@ -167,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
         //Toast.makeText(getApplicationContext(), " il y a " + String.valueOf(c.getCount()) + " lacs ", Toast.LENGTH_LONG).show();
     }
 
+
     public void deleteEleves() {
         DAOBdd daoBdd = new DAOBdd(this);
         daoBdd.open();
@@ -175,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void remplirStages(){
         DAOBdd daobdd = new DAOBdd(this);
-        Stage stage1 = new Stage("Stage 2ème année Stephan","04/01/2021","26/02/2021","12/02/2021","Stage tranquille","Normal","Documentation","Google","Fait des bruits bizarres","Non","Oui","1","1","1","1");
+        Stage stage1 = new Stage("Stage 2ème année Stephan","04/01/2021","26/02/2021","12/02/2021","Stage tranquille","Normal","Documentation","Google","Fait des bruits bizarres","Non","Oui2","1","1","1","1");
         Stage stage2 = new Stage("Stage 2ème année Traineau","04/01/2021","26/02/2021","10/02/2021","","","","","","","","2","1","1","1");
         Stage stage3 = new Stage("Stage 2ème année Debut","04/01/2021","26/02/2021","09/02/2021","","","","","","","","3","4","2","4");
         Stage stage8 = new Stage("Stage 2ème année Test","04/01/2021","26/02/2021","30/02/2021","","","","","","","","4","3","2","3");
