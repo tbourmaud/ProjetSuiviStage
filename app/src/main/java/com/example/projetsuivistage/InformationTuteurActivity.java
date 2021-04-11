@@ -29,7 +29,6 @@ public class InformationTuteurActivity extends Activity {
                     case R.id.btnValiderInfoTuteur:
                         Intent intent = new Intent(InformationTuteurActivity.this, BilanStageActivity.class);
                         startActivity(intent);
-                        finish();
                         break;
                 }
             }

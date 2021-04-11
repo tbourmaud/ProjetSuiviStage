@@ -182,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
 
         //on ouvre la base de données
         daoBdd.open();
-        //on insère les lacs
+        //on insère les tuteurs
         daoBdd.insererTuteurEntreprise(te1);
         daoBdd.insererTuteurEntreprise(te2);
         daoBdd.insererTuteurEntreprise(te3);

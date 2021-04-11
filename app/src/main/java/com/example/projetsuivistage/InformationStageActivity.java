@@ -26,6 +26,8 @@ public class InformationStageActivity extends Activity {
         // Gestion des cases des cases EditText
         EditText nomEleve = findViewById(R.id.editNomStg);
         EditText prenomEleve = findViewById(R.id.editPrenomStg);
+        EditText anneeStage = findViewById(R.id.editAnneeStg);
+        anneeStage.setText("2021");
 
         // Désactive la modification des cases
         nomEleve.setEnabled(false);
@@ -69,7 +71,7 @@ public class InformationStageActivity extends Activity {
         daoBdd.close();
 
         // Rempli les informations de l'élève
-        //Toast.makeText(InformationStageActivity.this, infoEleve.toString(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(InformationStageActivity.this, infoEleve.toString(), Toast.LENGTH_SHORT).show();
         nomEleve.setText(infoEleve.get(0).toString());
         prenomEleve.setText(infoEleve.get(1).toString());
         Toast.makeText(InformationStageActivity.this, infoEleve.get(2).toString(), Toast.LENGTH_SHORT).show();
@@ -79,10 +81,6 @@ public class InformationStageActivity extends Activity {
         } else {
             radioButtonSisr.toggle();
         }
-
-
-
-
 
     }
 

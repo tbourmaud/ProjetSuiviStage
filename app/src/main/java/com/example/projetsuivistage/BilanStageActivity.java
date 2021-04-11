@@ -29,7 +29,6 @@ public class BilanStageActivity extends Activity {
                     case R.id.btnValiderBilan:
                         Intent intent = new Intent(BilanStageActivity.this, AvisStageActivity.class);
                         startActivity(intent);
-                        finish();
                         break;
                 }
             }

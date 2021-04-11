@@ -190,11 +190,11 @@ public class DAOBdd {
     // Retourne les infos d'un élève depuis son nom
     public List<String> getEleveByPrenom(String prenomEleve) {
         List<String> infoEleve = new ArrayList<>();
-        Cursor c = db.rawQuery("SELECT * FROM tEleve WHERE prenom = "+"'"+prenomEleve+"'", null);
+        Cursor c = db.rawQuery("SELECT * FROM tEleve WHERE tEleve.prenom = "+"'"+prenomEleve+"' ", null);
         if(c.moveToFirst()) {
-            infoEleve.add(c.getString(1));
-            infoEleve.add(c.getString(2));
-            infoEleve.add(c.getString(4));
+            infoEleve.add(c.getString(1)); // Nom
+            infoEleve.add(c.getString(2)); // Prenom
+            infoEleve.add(c.getString(4)); // Spé
         }
         c.close();
         return infoEleve;
